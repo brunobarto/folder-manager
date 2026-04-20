@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wii UI File Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="wii-shell">
+    <!-- HEADER -->
+    <div class="wii-header">
+      <div class="wii-logo">
+        <div class="wii-logo-dot"></div>
+        <div class="wii-logo-text">Wii File Board</div>
+      </div>
+      <div class="wii-clock">
+        <div class="wii-clock-indicator"></div>
+        <span id="clock-text">--:--</span>
+      </div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="wii-main">
+
+      <!-- SIDEBAR -->
+      <aside class="wii-sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-title">Locations</div>
+          <ul class="sidebar-list" id="sidebar-locations">
+            <li class="sidebar-item active" data-path="root">
+              <div class="sidebar-item-icon">🏠</div>
+              <div class="sidebar-item-label">Home</div>
+              <div class="sidebar-badge">Root</div>
+            </li>
+            <li class="sidebar-item" data-path="root/Documents">
+              <div class="sidebar-item-icon">📄</div>
+              <div class="sidebar-item-label">Documents</div>
+            </li>
+            <li class="sidebar-item" data-path="root/Media">
+              <div class="sidebar-item-icon">🎵</div>
+              <div class="sidebar-item-label">Media</div>
+            </li>
+            <li class="sidebar-item" data-path="root/Projects">
+              <div class="sidebar-item-icon">🧩</div>
+              <div class="sidebar-item-label">Projects</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Quick Actions</div>
+          <ul class="sidebar-list">
+            <li class="sidebar-item" id="sidebar-new-folder">
+              <div class="sidebar-item-icon">＋</div>
+              <div class="sidebar-item-label">New Folder</div>
+            </li>
+            <li class="sidebar-item" id="sidebar-upload">
+              <div class="sidebar-item-icon">⬆</div>
+              <div class="sidebar-item-label">Upload File</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-footer">
+          <div>Storage</div>
+          <div class="storage-bar">
+            <div class="storage-bar-fill" id="storage-fill"></div>
+          </div>
+          <div class="storage-labels">
+            <span id="storage-used">42% used</span>
+            <span>32 GB</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <section class="wii-content">
+
+        <div class="content-header">
+          <div class="breadcrumb" id="breadcrumb"></div>
+          <div class="content-actions">
+            <button class="wii-button" id="btn-rename">
+              <span class="icon">✏️</span> Rename
+            </button>
+            <button class="wii-button danger" id="btn-delete">
+              <span class="icon">🗑</span> Delete
+            </button>
+            <button class="wii-button primary pulse" id="btn-new-folder">
+              <span class="icon">＋</span> New Folder
+            </button>
+          </div>
+        </div>
+
+        <div class="content-toolbar">
+          <span id="item-count">0 items</span>
+
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div class="view-toggle">
+              <button id="view-tiles" class="active">▢▢ Tiles</button>
+              <button id="view-list">☰ List</button>
+            </div>
+
+            <div class="search-box">
+               <input type="text" id="search-input" placeholder="Search here..." />
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body">
+          <div class="content-body-inner" id="content-area"></div>
+        </div>
+
+        <div class="content-footer">
+          <div class="hint">Use arrow keys and Enter to navigate — like a Wii channel board.</div>
+          <div class="selection-count" id="selection-count">No items selected</div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
